@@ -115,26 +115,26 @@ public final class FilerUtils {
     /**
      * Creates a java source file writer.
      *
-     * @param fileName            the canonical name of the class to create
+     * @param className            the canonical name of the class to create
      * @param originatingElements the element which originates the creation of the source file
      * @return a SimpleJavaWriter that can be used to write java source code
      * @throws IOException is thrown if writer can't be created
      */
-    public static SimpleJavaWriter createSourceFile(String fileName, Element... originatingElements) throws IOException {
-        return new SimpleJavaWriter(ProcessingEnvironmentUtils.getFiler().createSourceFile(fileName, originatingElements));
+    public static SimpleJavaWriter createSourceFile(String className, Element... originatingElements) throws IOException {
+        return new SimpleJavaWriter(ProcessingEnvironmentUtils.getFiler().createSourceFile(className, originatingElements));
     }
 
     /**
      * Creates a kotlin source file.
      * Compilation will fail if the kapt plugin isn't used properly (kapt.kotlin.generated must be configured in compiler options)
      *
-     * @param fileName            the canonical name of the class to create
+     * @param className            the canonical name of the class to create
      * @param originatingElements the element which originates the creation of the source file
      * @return a SimpleJavaWriter that can be used to write java source code
      * @throws IOException is thrown if writer can't be created
      */
-    public static SimpleKotlinWriter createKotlinSourceFile(String fileName, Element... originatingElements) throws IOException {
-        return new SimpleKotlinWriter(fileName, originatingElements);
+    public static SimpleKotlinWriter createKotlinSourceFile(String className, Element... originatingElements) throws IOException {
+        return new SimpleKotlinWriter(className, originatingElements);
     }
 
 }
